@@ -1,3 +1,5 @@
+
+// get all seats
 const seates = document.getElementsByClassName('forLoop');
 
 for (seat of seates) {
@@ -17,8 +19,8 @@ for (seat of seates) {
 
             const selectedSeatName = event.target.innerText;
 
+            // create Element and append
             const tr = document.createElement('tr');
-
             const td1 = document.createElement('td');
             td1.innerText = selectedSeatName;
             const td2 = document.createElement('td');
@@ -34,17 +36,15 @@ for (seat of seates) {
             tbody.appendChild(tr);
 
             const totalElement = document.getElementById('totalBDT');
-
             const totalNumber = getElementNumberValueById('totalBDT');
             const newTotal = totalNumber + 550;
             totalElement.innerText = newTotal;
-            
-            const GrandTotal = document.getElementById('GrandTotal');
 
+            const GrandTotal = document.getElementById('GrandTotal');
             GrandTotal.innerText = newTotal;
 
             event.target.addEventListener('click', function (event) {
-                console.log(event.innerText);
+
             })
 
         } else {
@@ -53,3 +53,18 @@ for (seat of seates) {
 
     })
 }
+// start input apply button
+
+const getInputField = document.getElementById('inputBox');
+getInputField.addEventListener('keyup', function (event) {
+
+    if ((event.target.value === "NEW15" || event.target.value === 'Couple 20')) {
+        document.getElementById('applyButton').removeAttribute('disabled')
+    } else {
+        document.getElementById('applyButton').setAttribute('disabled', true)
+    }
+});
+
+
+
+
