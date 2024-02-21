@@ -64,7 +64,22 @@ getInputField.addEventListener('keyup', function (event) {
         document.getElementById('applyButton').setAttribute('disabled', true)
     }
 });
+const getInputText = document.getElementById('name');
+getInputText.addEventListener('keyup', function(event){
+    if(event.target.value.length == 4 ){
+        document.getElementById('NextButton').removeAttribute('disabled')
+    }else{
+        document.getElementById('NextButton').setAttribute('disabled', true)
+    }
+})
 
-
+const getInputPhone = document.getElementById('phone');
+getInputPhone.addEventListener('keyup', function(event){
+    if(event.target.value.length == 4 ){
+        document.getElementById('NextButton').removeAttribute('disabled')
+    }else{
+        document.getElementById('NextButton').setAttribute('disabled', true)
+    }
+})
 
 
