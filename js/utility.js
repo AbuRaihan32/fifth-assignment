@@ -9,10 +9,11 @@ function getElementNumberValueById(elementId) {
 // set Element Value
 function setElementValueById(elementId, value) {
     const element = document.getElementById(elementId)
-    const newSeat = element.innerText = value;
+    element.innerText = value;
 }
 
 // popUp
 function popUp(){
     alert('You cannot select more than four seats.')
 }
+

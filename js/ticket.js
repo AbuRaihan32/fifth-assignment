@@ -1,10 +1,13 @@
 const seates = document.getElementsByClassName('forLoop');
 
 for (seat of seates) {
-    seat.addEventListener('click', function (event) {
+    const seatsInnerText = seat.innerText;
 
+    seat.addEventListener('click', function (event) {
         const currentSeat = getElementNumberValueById('current-seat');
         const selectedSeat = getElementNumberValueById('selectedSeat')
+
+
         if (currentSeat > 36) {
             event.target.style.backgroundColor = '#1DD100'
             const newSeat = currentSeat - 1;
@@ -13,19 +16,40 @@ for (seat of seates) {
             setElementValueById('selectedSeat', currentSelectedSeat)
 
             const selectedSeatName = event.target.innerText;
-            const tbodyForAppend = document.getElementById('tbodyForInput');
 
-            tbodyForAppend.innerHTML`
-                <tr>
-                    <td id="tdForAppend"></td>
-                    <td>Economy</td>
-                    <td>550</td>
-                </tr>
-            `
-            // const tdForAppend = document.getElementById('tdForAppend');
-            // tdForAppend.innerText = selectedSeatName;
+            const tr = document.createElement('tr');
+
+            const td1 = document.createElement('td');
+            td1.innerText = selectedSeatName;
+            const td2 = document.createElement('td');
+            td2.innerText = 'Economy'
+            const td3 = document.createElement('td');
+            td3.innerText = '550'
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+
+            const tbody = document.getElementById('tbodyForAppend');
+            tbody.appendChild(tr);
+
+            const totalElement = document.getElementById('totalBDT');
+
+            const totalNumber = getElementNumberValueById('totalBDT');
+            const newTotal = totalNumber + 550;
+            totalElement.innerText = newTotal;
+            
+            const GrandTotal = document.getElementById('GrandTotal');
+
+            GrandTotal.innerText = newTotal;
+
+            event.target.addEventListener('click', function (event) {
+                console.log(event.innerText);
+            })
+
         } else {
             popUp();
         }
+
     })
 }
