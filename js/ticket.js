@@ -66,7 +66,7 @@ getInputField.addEventListener('keyup', function (event) {
 });
 const getInputText = document.getElementById('name');
 getInputText.addEventListener('keyup', function(event){
-    if(event.target.value.length == 4 ){
+    if(event.target.value.length >= 4 ){
         document.getElementById('NextButton').removeAttribute('disabled')
     }else{
         document.getElementById('NextButton').setAttribute('disabled', true)
@@ -75,11 +75,10 @@ getInputText.addEventListener('keyup', function(event){
 
 const getInputPhone = document.getElementById('phone');
 getInputPhone.addEventListener('keyup', function(event){
-    if(event.target.value.length == 4 ){
+    if(event.target.value.length >= 4 ){
         document.getElementById('NextButton').removeAttribute('disabled')
     }else{
         document.getElementById('NextButton').setAttribute('disabled', true)
     }
 })
-
 
